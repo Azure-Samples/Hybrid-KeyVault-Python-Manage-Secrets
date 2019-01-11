@@ -1,13 +1,7 @@
-## [project-title] Changelog
+## Hybrid-KeyVault-Python-Manage-Secrets Changelog
 
-<a name="x.y.z"></a>
-# x.y.z (yyyy-mm-dd)
+<a name="1.0.0"></a>
+# 1.0.0 (2019-01-08)
 
 *Features*
-* ...
-
-*Bug Fixes*
-* ...
-
-*Breaking Changes*
-* ...
+* Add keyvault management sample for azure stack
