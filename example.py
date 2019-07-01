@@ -36,8 +36,9 @@ LOCATION = os.environ['AZURE_RESOURCE_LOCATION']
 post_fix = random.randint(100, 500)
 GROUP_NAME = 'azure-sample-group-resources-{}'.format(post_fix)
 
-# Keyvault 
+# Keyvault
 KV_NAME = haikunator.haikunate()
+
 
 def get_credentials():
     mystack_cloud = get_cloud_from_metadata_endpoint(
@@ -51,6 +52,7 @@ def get_credentials():
     )
     return credentials, subscription_id, mystack_cloud
 
+
 def run_example():
     """Keyvault management example."""
     #
@@ -62,9 +64,9 @@ def run_example():
     credentials, subscription_id, mystack_cloud = get_credentials()
     kv_dp_credentials, sub_id, mystack = get_credentials()
     kv_client = KeyVaultManagementClient(credentials, subscription_id,
-        base_url=mystack_cloud.endpoints.resource_manager)
+                                         base_url=mystack_cloud.endpoints.resource_manager)
     resource_client = ResourceManagementClient(credentials, subscription_id,
-        base_url=mystack_cloud.endpoints.resource_manager)
+                                               base_url=mystack_cloud.endpoints.resource_manager)
     kv_data_client = KeyVaultClient(kv_dp_credentials)
 
     # You MIGHT need to add KeyVault as a valid provider for these credentials
@@ -74,7 +76,8 @@ def run_example():
     # Create Resource group
     print('Create Resource Group')
     resource_group_params = {'location': LOCATION}
-    print_item(resource_client.resource_groups.create_or_update(GROUP_NAME, resource_group_params))
+    print_item(resource_client.resource_groups.create_or_update(
+        GROUP_NAME, resource_group_params))
 
     # Create a vault
     print('\nCreate a vault')
